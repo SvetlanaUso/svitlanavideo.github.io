@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Світлана — Пакети послуг · Ціни</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0D0806; --surface:#17100A; --surface-el:#1F1510;
+  --border:#2A1E14; --border-strong:#3A2A1E;
+  --text-p:#F2EDE8; --text-s:#B8A898; --text-m:#6B5E52;
+  --accent:#C4889A; --accent-h:#D49AAC; --accent-pressed:#A8708A;
+  --success:#7BA688; --warning:#C4A458;
+  --radius-sm:2px; --radius-md:4px; --radius-lg:8px;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.35);
+  --shadow-md:0 8px 32px rgba(0,0,0,.5);
+  --shadow-lg:0 24px 64px rgba(0,0,0,.7);
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text-p);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--accent)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:22px 64px;display:flex;justify-content:space-between;align-items:center;transition:all .4s var(--ease)}
+nav.solid{background:rgba(13,8,6,.96);backdrop-filter:blur(20px);padding:14px 64px;border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--text-p);cursor:pointer;text-decoration:none}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-m);cursor:pointer;transition:color .2s;text-decoration:none}
+.nav-links a:hover{color:var(--text-p)}
+.nav-cta{background:var(--accent);color:#fff;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:11px 24px;border-radius:var(--radius-sm);cursor:pointer;border:none;transition:background .2s;text-decoration:none;display:inline-block}
+.nav-cta:hover{background:var(--accent-h)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:1000}
+.burger span{width:22px;height:1px;background:var(--text-p);display:block;transition:all .3s}
+.burger.x span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mob-menu{position:fixed;inset:0;z-index:800;background:rgba(13,8,6,.98);backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;transform:translateX(100%);transition:transform .5s var(--ease)}
+.mob-menu.open{transform:translateX(0)}
+.mob-menu a{font-family:'Playfair Display',serif;font-size:34px;font-style:italic;color:var(--text-p);cursor:pointer;transition:color .2s;text-decoration:none}
+.mob-menu a:hover{color:var(--accent)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.on{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.40s}
+
+/* SHARED */
+.wrap{max-width:1160px;margin:0 auto;padding:0 64px}
+.sec-label{display:inline-flex;align-items:center;gap:12px;font-size:10px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.sec-label::before{content:'';width:20px;height:1px;background:var(--accent);flex-shrink:0}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,48px);font-weight:700;line-height:1.12;letter-spacing:-.02em;color:var(--text-p)}
+.sec-title em{font-style:italic;color:var(--accent)}
+
+/* HERO */
+#hero{padding:140px 0 80px;position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(196,136,154,.07) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:10px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent);flex-shrink:0}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(40px,5.5vw,72px);font-weight:700;line-height:1.06;letter-spacing:-.025em;color:var(--text-p);margin-bottom:20px}
+.hero-h1 em{font-style:italic;color:var(--accent);display:block}
+.hero-sub{font-size:15px;line-height:1.82;color:var(--text-s);max-width:520px;margin-bottom:0}
+.tab-switcher{display:flex;gap:0;margin-top:52px;border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;width:fit-content}
+.tab-btn{padding:13px 28px;font-size:11px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;background:transparent;border:none;color:var(--text-m);cursor:pointer;transition:all .25s;position:relative}
+.tab-btn.active{background:var(--accent);color:#fff}
+.tab-btn:not(.active):hover{color:var(--text-s);background:rgba(196,136,154,.05)}
+
+/* SECTION */
+.pkg-section{padding:80px 0 120px;border-top:1px solid var(--border)}
+.pkg-section.hidden{display:none}
+.section-intro{margin-bottom:56px}
+.section-intro p{font-size:15px;line-height:1.82;color:var(--text-s);margin-top:14px;max-width:560px}
+
+/* INDIVIDUAL PACKAGE */
+.individual-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:40px 44px;margin-bottom:40px;position:relative;overflow:hidden;transition:border-color .3s}
+.individual-block::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 90% 50%,rgba(196,136,154,.05) 0%,transparent 60%);pointer-events:none}
+.individual-block:hover{border-color:rgba(196,136,154,.3)}
+.ind-row{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start}
+.ind-badge{display:inline-flex;align-items:center;gap:8px;font-size:9.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);background:rgba(196,136,154,.1);border:1px solid rgba(196,136,154,.2);padding:5px 14px;border-radius:40px;margin-bottom:16px}
+.ind-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:var(--text-p);margin-bottom:8px}
+.ind-sub{font-size:13.5px;color:var(--text-s);line-height:1.65;margin-bottom:24px}
+.ind-includes{display:flex;flex-direction:column;gap:10px}
+.ind-item{display:flex;align-items:center;gap:12px;font-size:13.5px;color:var(--text-s)}
+.ind-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.ind-price-block{text-align:right;flex-shrink:0}
+.price-main{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;line-height:1;color:var(--text-p);letter-spacing:-.02em}
+.price-currency{font-size:20px;vertical-align:top;margin-top:10px;display:inline-block;color:var(--text-s)}
+.price-unit{font-size:12px;color:var(--text-m);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+.ind-cta{margin-top:20px;display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:12px 24px;border-radius:var(--radius-sm);cursor:pointer;border:none;transition:background .2s;text-decoration:none}
+.ind-cta:hover{background:var(--accent-h)}
+
+/* PACKAGES GRID */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;margin-bottom:40px}
+.pkg-card{background:var(--bg);padding:36px 32px 40px;position:relative;transition:background .25s;display:flex;flex-direction:column}
+.pkg-card:hover{background:var(--surface-el)}
+.pkg-card.featured{background:var(--surface);border-top:2px solid var(--accent)}
+.pkg-card.featured:hover{background:var(--surface-el)}
+.pkg-badge{display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);background:rgba(196,136,154,.12);border:1px solid rgba(196,136,154,.25);padding:4px 12px;border-radius:40px;margin-bottom:18px;width:fit-content}
+.pkg-num{font-family:'Playfair Display',serif;font-size:11px;font-style:italic;color:var(--text-m);margin-bottom:8px}
+.pkg-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--text-p);margin-bottom:6px}
+.pkg-desc{font-size:13px;color:var(--text-m);line-height:1.65;margin-bottom:24px}
+.pkg-price{margin-bottom:24px}
+.pkg-price .p-amt{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--text-p);line-height:1;letter-spacing:-.02em}
+.pkg-price .p-cur{font-size:16px;color:var(--text-s);vertical-align:top;margin-top:8px;display:inline-block}
+.pkg-price .p-label{font-size:11px;color:var(--text-m);margin-top:4px;letter-spacing:1px;text-transform:uppercase}
+.pkg-divider{width:100%;height:1px;background:var(--border);margin-bottom:20px}
+.pkg-list{display:flex;flex-direction:column;gap:10px;flex:1}
+.pkg-li{display:flex;align-items:flex-start;gap:12px;font-size:13px;color:var(--text-s);line-height:1.55}
+.pkg-li-icon{width:16px;height:16px;flex-shrink:0;margin-top:1px}
+.pkg-li-icon.check svg{stroke:var(--success)}
+.pkg-li-icon.plus svg{stroke:var(--accent)}
+.pkg-cta{margin-top:28px;display:block;width:100%;padding:12px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-align:center;border-radius:var(--radius-sm);cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text-s);transition:all .25s;text-decoration:none}
+.pkg-cta:hover{border-color:rgba(196,136,154,.4);color:var(--text-p);background:rgba(196,136,154,.06)}
+.pkg-card.featured .pkg-cta{background:var(--accent);border-color:var(--accent);color:#fff}
+.pkg-card.featured .pkg-cta:hover{background:var(--accent-h);border-color:var(--accent-h)}
+
+/* PERMANENT */
+.perm-block{background:linear-gradient(135deg,var(--surface) 0%,rgba(196,136,154,.04) 100%);border:1px solid var(--border-strong);border-radius:var(--radius-md);padding:48px;position:relative;overflow:hidden;margin-bottom:16px;transition:border-color .3s}
+.perm-block::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.perm-block:hover{border-color:rgba(196,136,154,.35)}
+.perm-inner{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.perm-badge{display:inline-flex;align-items:center;gap:8px;font-size:9.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--warning);background:rgba(196,164,88,.08);border:1px solid rgba(196,164,88,.2);padding:5px 14px;border-radius:40px;margin-bottom:16px}
+.perm-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--text-p);margin-bottom:10px}
+.perm-sub{font-size:14px;color:var(--text-s);line-height:1.75;max-width:500px;margin-bottom:24px}
+.perm-perks{display:flex;flex-wrap:wrap;gap:8px}
+.perk-tag{font-size:12px;color:var(--text-s);background:rgba(242,237,232,.04);border:1px solid var(--border);padding:6px 14px;border-radius:40px}
+.perm-price-block{text-align:right;flex-shrink:0}
+.perm-from{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-m);margin-bottom:4px}
+.perm-amt{font-family:'Playfair Display',serif;font-size:54px;font-weight:700;line-height:1;color:var(--text-p);letter-spacing:-.02em}
+.perm-cur{font-size:20px;color:var(--text-s);vertical-align:top;margin-top:12px;display:inline-block}
+.perm-unit{font-size:11px;color:var(--text-m);letter-spacing:1.5px;text-transform:uppercase;margin-top:6px}
+.perm-cta{margin-top:20px;display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--border-strong);color:var(--text-s);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:12px 24px;border-radius:var(--radius-sm);cursor:pointer;transition:all .25s;text-decoration:none}
+.perm-cta:hover{border-color:rgba(196,136,154,.4);color:var(--text-p);background:rgba(196,136,154,.06)}
+
+/* NOTE */
+.pkg-note{padding:24px 32px;border:1px solid var(--border);border-radius:var(--radius-sm);background:rgba(196,136,154,.03);margin-top:0}
+.pkg-note p{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--text-s);line-height:1.65}
+.pkg-note span{color:var(--accent)}
+
+/* COMPARISON TABLE */
+.compare-wrap{margin-top:80px;border-top:1px solid var(--border);padding-top:56px}
+.compare-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--text-p);margin-bottom:32px}
+.compare-table{width:100%;border-collapse:collapse}
+.compare-table th{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-m);text-align:left;padding:0 24px 16px;border-bottom:1px solid var(--border)}
+.compare-table th:not(:first-child){text-align:center}
+.compare-table td{padding:14px 24px;border-bottom:1px solid var(--border);font-size:13.5px;color:var(--text-s);vertical-align:middle}
+.compare-table td:not(:first-child){text-align:center}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:hover td{background:rgba(196,136,154,.02)}
+.ct-yes{color:var(--success);font-size:14px}
+.ct-no{color:var(--text-m);font-size:14px}
+.ct-val{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--text-p)}
+.ct-highlight{background:rgba(196,136,154,.05)}
+
+/* CTA SECTION */
+#cta-block{padding:96px 0;border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
+#cta-block::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(196,136,154,.08) 0%,transparent 70%);pointer-events:none}
+.cta-label{display:inline-flex;align-items:center;gap:12px;font-size:10px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
+.cta-label::before{content:'';width:20px;height:1px;background:var(--accent)}
+.cta-h2{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,52px);font-weight:700;line-height:1.1;letter-spacing:-.02em;color:var(--text-p);margin-bottom:16px}
+.cta-h2 em{font-style:italic;color:var(--accent)}
+.cta-sub{font-size:15px;line-height:1.75;color:var(--text-s);max-width:400px;margin:0 auto 48px}
+.cc-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.cc{display:flex;flex-direction:column;align-items:center;gap:8px;padding:26px 28px;border:1px solid var(--border);border-radius:var(--radius-sm);text-decoration:none;min-width:160px;background:rgba(23,16,10,.7);backdrop-filter:blur(8px);transition:all .3s var(--ease)}
+.cc:hover{border-color:rgba(196,136,154,.4);background:rgba(196,136,154,.05);transform:translateY(-4px)}
+.cc-ico{width:34px;height:34px;display:flex;align-items:center;justify-content:center}
+.cc-ico svg{width:19px;height:19px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.cc-lbl{font-size:9.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-m)}
+.cc-val{font-size:13px;font-weight:600;color:var(--text-p)}
+
+/* FOOTER */
+footer{padding:32px 64px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--text-s)}
+.f-mid{font-size:11px;color:var(--text-m)}
+.f-links{display:flex;gap:24px}
+.f-links a{font-size:11px;color:var(--text-m);cursor:pointer;transition:color .2s;text-decoration:none}
+.f-links a:hover{color:var(--text-p)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .wrap{padding:0 40px}
+  nav,nav.solid{padding-left:32px;padding-right:32px}
+  footer{padding-left:40px;padding-right:40px}
+  .pkg-grid{grid-template-columns:1fr}
+  .perm-inner{grid-template-columns:1fr}
+  .perm-price-block{text-align:left}
+  .ind-row{grid-template-columns:1fr}
+  .ind-price-block{text-align:left}
+  .cond-grid{grid-template-columns:1fr!important}
+  #prep-grid{grid-template-columns:1fr!important}
+  #ai-directions{grid-template-columns:1fr!important}
+  #ai-price-factors{grid-template-columns:1fr!important}
+  #photo-price-grid{grid-template-columns:1fr!important}
+  #photo-price-grid [style*="grid-column:span 2"]{grid-column:span 1!important}
+}
+@media(max-width:768px){
+  .wrap{padding:0 24px}
+  nav,nav.solid{padding:16px 24px}
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  footer{padding:28px 24px;flex-direction:column;text-align:center}
+  #hero{padding:110px 0 60px}
+  .tab-switcher{flex-direction:column;width:100%}
+  .individual-block{padding:28px 24px}
+  .pkg-card{padding:28px 24px 32px}
+  .perm-block{padding:32px 24px}
+  .compare-table{display:none}
+  .pkg-section{padding:56px 0 80px}
+  .cc-row{flex-direction:column;align-items:stretch}
+  .cc{min-width:auto}
+  #cta-block{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html">Світлана</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Головна</a></li>
+    <li><a href="index.html#how">Формати</a></li>
+    <li><a href="index.html#portfolio">Роботи</a></li>
+    <li><a href="#cta-block">Контакти</a></li>
+  </ul>
+  <a class="nav-cta" href="https://t.me/svitlanavideo" target="_blank" rel="noopener">Написати</a>
+  <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Меню"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html" onclick="closeMob()">Головна</a>
+  <a href="index.html#portfolio" onclick="closeMob()">Роботи</a>
+  <a href="#cta-block" onclick="closeMob()">Написати</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+    <div class="rv">
+      <div class="hero-eyebrow">Прайс-лист · 2026</div>
+      <h1 class="hero-h1">Пакети послуг.<em>Обери свій формат.</em></h1>
+      <p class="hero-sub">Три напрямки — реальна відеозйомка, контент-мейкінг і AI-реклама. Гнучкі умови від разового проєкту до постійної співпраці.</p>
+    </div>
+    <!-- TAB SWITCHER -->
+    <div class="tab-switcher rv d2" id="tabSwitcher">
+      <button class="tab-btn active" onclick="switchTab('video')">📹 Відеограф</button>
+      <button class="tab-btn" onclick="switchTab('ai')">✦ AI-контент</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION: ВІДЕОГРАФ ══════════ -->
+<section class="pkg-section" id="sec-video">
+  <div class="wrap">
+    <div class="section-intro rv">
+      <div class="sec-label">Відеограф · Контент-мейкер</div>
+      <h2 class="sec-title">Відео і фото<em> для вашого бізнесу</em></h2>
+      <p>Зйомка в Одесі або дистанційно — ви надсилаєте товар поштою. Відео для соцмереж і сайтів. Готові матеріали надсилаю через Telegram.</p>
+    </div>
+
+    <!-- ── БЛОК 1: ПРЕДМЕТНА ЗЙОМКА ── -->
+    <div class="rv" style="margin-bottom:12px">
+      <div style="display:inline-flex;align-items:center;gap:12px;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--text-m);margin-bottom:20px">
+        <span style="width:20px;height:1px;background:var(--border-strong);display:block"></span>
+        Послуга 1 — Предметна зйомка
+      </div>
+    </div>
+
+    <div class="individual-block rv d1" style="margin-bottom:48px">
+      <div class="ind-row">
+        <div>
+          <div class="ind-badge">📦 Надсилаєте товар поштою</div>
+          <div class="ind-title">Предметна зйомка на телефон</div>
+          <div class="ind-sub">Відео до 30 сек + фото · для соцмереж, сайту, маркетплейсів · Термін до 14 днів</div>
+          <div class="ind-includes">
+            <div class="ind-item">Відео до 30 секунд + 10 фото в обробці</div>
+            <div class="ind-item">До 3 правок безкоштовно</div>
+            <div class="ind-item">Вихідники — за необхідністю</div>
+            <div class="ind-item">Предмет зйомки повертається замовнику</div>
+          </div>
+          <div style="margin-top:20px;padding:16px 20px;background:rgba(196,136,154,.04);border:1px solid var(--border);border-radius:var(--radius-sm);display:flex;flex-direction:column;gap:8px">
+            <div style="font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-m);margin-bottom:4px">Додатково оплачується</div>
+            <div style="font-size:13px;color:var(--text-s);line-height:1.6">Реквізит — за фактичною вартістю, узгоджується заздалегідь</div>
+            <div style="font-size:13px;color:var(--text-s);line-height:1.6">Доставка товару — за рахунок замовника (в обидва боки)</div>
+          </div>
+        </div>
+        <div class="ind-price-block">
+          <div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-m);margin-bottom:4px">від</div>
+          <div class="price-main"><span class="price-currency">₴</span>4 000</div>
+          <div class="price-unit">за послугу</div>
+          <div style="margin-top:10px;font-size:12px;color:var(--text-m);line-height:1.55;max-width:180px;text-align:right">Ціна залежить від складності, кількості товарів та реквізиту</div>
+          <a href="https://t.me/svitlanavideo" target="_blank" class="ind-cta" style="margin-top:16px">Замовити →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── БЛОК 2: ВІДЕОГРАФ ── -->
+    <div class="rv" style="margin-bottom:20px">
+      <div style="display:inline-flex;align-items:center;gap:12px;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--text-m);margin-bottom:20px">
+        <span style="width:20px;height:1px;background:var(--border-strong);display:block"></span>
+        Послуга 2 — Відеограф
+      </div>
+    </div>
+
+    <!-- РІВНІ ПІДГОТОВКИ -->
+    <div class="rv d1" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;margin-bottom:32px" id="prep-grid">
+      <div style="background:var(--surface);padding:28px 32px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
+          <div style="font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-s)">Тариф А</div>
+          <div style="font-size:11px;font-weight:600;color:var(--success);background:rgba(123,166,136,.1);border:1px solid rgba(123,166,136,.2);padding:3px 10px;border-radius:40px;letter-spacing:.5px">Базова ціна</div>
+        </div>
+        <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--text-p);margin-bottom:8px">Робота за готовим ТЗ</div>
+        <div style="font-size:13px;color:var(--text-s);line-height:1.65;margin-bottom:16px">Ви надаєте чіткий сценарій, референси та детальний опис кожного кадру. Я знімаю і монтую.</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;gap:10px;font-size:13px;color:var(--text-s)"><span style="color:var(--success)">✓</span> Чіткий опис кожного кадру / фото</div>
+          <div style="display:flex;gap:10px;font-size:13px;color:var(--text-s)"><span style="color:var(--success)">✓</span> Підібрані референси</div>
+          <div style="display:flex;gap:10px;font-size:13px;color:var(--text-s)"><span style="color:var(--success)">✓</span> Визначено музику і стиль</div>
+        </div>
+      </div>
+      <div style="background:var(--surface-el);padding:28px 32px;border-left:1px solid var(--border)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
+          <div style="font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-s)">Тариф Б</div>
+          <div style="font-size:11px;font-weight:600;color:var(--accent);background:rgba(196,136,154,.1);border:1px solid rgba(196,136,154,.2);padding:3px 10px;border-radius:40px;letter-spacing:.5px">Ціна вища</div>
+        </div>
+        <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--text-p);margin-bottom:8px">Повна розробка ідеї</div>
+        <div style="font-size:13px;color:var(--text-s);line-height:1.65;margin-bottom:16px">Я розробляю концепцію з нуля. Розробка займає до 3 днів — зйомка починається тільки після узгодження концепції.</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;gap:10px;font-size:13px;color:var(--text-s)"><span style="color:var(--accent)">+</span> Розробка сценарію та сторіборду</div>
+          <div style="display:flex;gap:10px;font-size:13px;color:var(--text-s)"><span style="color:var(--accent)">+</span> Підбір образу, локації, реквізиту</div>
+          <div style="display:flex;gap:10px;font-size:13px;color:var(--text-s)"><span style="color:var(--accent)">+</span> Мудборд + узгодження концепції</div>
+          <div style="display:flex;gap:10px;font-size:13px;color:var(--text-s)"><span style="color:var(--accent)">+</span> Музика та саунд-дизайн</div>
+          <div style="display:flex;gap:10px;font-size:13px;color:var(--text-s)"><span style="color:var(--accent)">+</span> Кольорокорекція</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- РАЗОВИЙ СЕАНС -->
+    <div class="individual-block rv d2" style="margin-bottom:32px">
+      <div class="ind-row">
+        <div>
+          <div class="ind-badge">⚡ Разовий сеанс</div>
+          <div class="ind-title">Відеограф · 1,5 години</div>
+          <div class="ind-sub">Зйомка в Одесі · Монтаж + обробка · Термін до 14 днів</div>
+          <div class="ind-includes">
+            <div class="ind-item">1 змонтоване відео для соцмереж / сайту</div>
+            <div class="ind-item">До 3 правок безкоштовно</div>
+            <div class="ind-item">Вихідники — за необхідністю</div>
+          </div>
+          <div style="margin-top:14px;font-size:12.5px;color:var(--text-m);line-height:1.6">Реквізит та доставка товару — додатково, за фактичною вартістю</div>
+        </div>
+        <div class="ind-price-block">
+          <div class="price-main"><span class="price-currency">₴</span>3 000</div>
+          <div class="price-unit">за сеанс</div>
+          <div style="margin-top:8px;font-size:11.5px;color:var(--text-m);line-height:1.5;text-align:right">+ доплата за розробку<br>ідеї (Тариф Б)</div>
+          <a href="https://t.me/svitlanavideo" target="_blank" class="ind-cta" style="margin-top:16px">Замовити →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PACKAGES -->
+    <div class="rv" style="margin-bottom:12px">
+      <div style="font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-m)">Пакети · більше відео — менша ціна за одиницю</div>
+    </div>
+    <div class="pkg-grid rv d2">
+      <!-- STARTER -->
+      <div class="pkg-card">
+        <div class="pkg-num">01</div>
+        <div class="pkg-name">Старт</div>
+        <div class="pkg-desc">Для тестування формату або нового продукту</div>
+        <div class="pkg-price">
+          <span class="p-cur">₴</span><span class="p-amt">7 500</span>
+          <div class="p-label">за пакет</div>
+        </div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-list">
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span><strong style="color:var(--text-p)">3 відео</strong> змонтованих</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>30 фото в обробці</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>Вихідники — за необхідністю</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>Термін до 14 днів</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon plus"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="8" x2="13" y2="8"/><line x1="8" y1="3" x2="8" y2="13"/></svg></div>
+            <span style="color:var(--accent)">≈ 2 500 ₴ / відео</span>
+          </div>
+        </div>
+        <div style="margin-top:16px;padding:10px 14px;background:rgba(196,136,154,.06);border:1px solid rgba(196,136,154,.15);border-radius:var(--radius-sm);font-size:12px;color:var(--text-m);line-height:1.5">
+          + доплата за розробку ідеї (Тариф Б)
+        </div>
+        <a href="https://t.me/svitlanavideo" target="_blank" class="pkg-cta">Обрати</a>
+      </div>
+
+      <!-- OPTIMAL — FEATURED -->
+      <div class="pkg-card featured">
+        <div class="pkg-badge">✦ Найпопулярніший</div>
+        <div class="pkg-num">02</div>
+        <div class="pkg-name">Оптимальний</div>
+        <div class="pkg-desc">Постійна контент-база для соцмереж</div>
+        <div class="pkg-price">
+          <span class="p-cur">₴</span><span class="p-amt">11 000</span>
+          <div class="p-label">за пакет</div>
+        </div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-list">
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span><strong style="color:var(--text-p)">5 відео</strong> змонтованих</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>30 фото в обробці</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>Вихідники — за необхідністю</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>Термін до 14 днів</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon plus"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="8" x2="13" y2="8"/><line x1="8" y1="3" x2="8" y2="13"/></svg></div>
+            <span style="color:var(--accent)">≈ 2 200 ₴ / відео</span>
+          </div>
+        </div>
+        <div style="margin-top:16px;padding:10px 14px;background:rgba(196,136,154,.08);border:1px solid rgba(196,136,154,.2);border-radius:var(--radius-sm);font-size:12px;color:var(--text-m);line-height:1.5">
+          + доплата за розробку ідеї (Тариф Б)
+        </div>
+        <a href="https://t.me/svitlanavideo" target="_blank" class="pkg-cta">Обрати</a>
+      </div>
+
+      <!-- MAX -->
+      <div class="pkg-card">
+        <div class="pkg-num">03</div>
+        <div class="pkg-name">Максимум</div>
+        <div class="pkg-desc">Для активних продажів і великого асортименту</div>
+        <div class="pkg-price">
+          <span class="p-cur">₴</span><span class="p-amt">15 000</span>
+          <div class="p-label">за пакет</div>
+        </div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-list">
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span><strong style="color:var(--text-p)">10 відео</strong> змонтованих</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>30 фото в обробці</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>Вихідники — за необхідністю</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>Термін до 14 днів</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon plus"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="8" x2="13" y2="8"/><line x1="8" y1="3" x2="8" y2="13"/></svg></div>
+            <span style="color:var(--accent)">≈ 1 500 ₴ / відео</span>
+          </div>
+        </div>
+        <div style="margin-top:16px;padding:10px 14px;background:rgba(196,136,154,.06);border:1px solid rgba(196,136,154,.15);border-radius:var(--radius-sm);font-size:12px;color:var(--text-m);line-height:1.5">
+          + доплата за розробку ідеї (Тариф Б)
+        </div>
+        <a href="https://t.me/svitlanavideo" target="_blank" class="pkg-cta">Обрати</a>
+      </div>
+    </div>
+
+    <!-- PERMANENT -->
+    <div class="perm-block rv d3">
+      <div class="perm-inner">
+        <div>
+          <div class="perm-badge">⭐ Постійна співпраця</div>
+          <div class="perm-title">Штатний контент-мейкер</div>
+          <div class="perm-sub">Ваш продукт завжди в руках фахівця. Пріоритет у черзі, фіксована вартість, регулярний потік контенту без організаційних клопотів.</div>
+          <div class="perm-perks">
+            <span class="perk-tag">Фіксована вартість</span>
+            <span class="perk-tag">Пріоритет у черзі</span>
+            <span class="perk-tag">Обсяг за домовленістю</span>
+            <span class="perk-tag">Один підрядник — вся стратегія</span>
+          </div>
+          <a href="https://t.me/svitlanavideo" target="_blank" class="perm-cta" style="margin-top:24px;display:inline-flex">Обговорити умови →</a>
+        </div>
+        <div class="perm-price-block">
+          <div class="perm-from">від</div>
+          <div class="perm-amt"><span class="perm-cur">₴</span>40 000</div>
+          <div class="perm-unit">на місяць</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONDITIONS BLOCK -->
+    <div class="rv d4 cond-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;margin-bottom:24px">
+      <div style="background:var(--surface);padding:32px 36px">
+        <div style="font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:16px">Як розпочати</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:14px;align-items:flex-start;font-size:13.5px;color:var(--text-s);line-height:1.55">
+            <span style="font-family:'Playfair Display',serif;color:var(--text-m);flex-shrink:0;font-size:13px">01</span>
+            <span>Надішліть фото продукції, сторінку в соцмережах та приклади відео, що подобаються</span>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;font-size:13.5px;color:var(--text-s);line-height:1.55">
+            <span style="font-family:'Playfair Display',serif;color:var(--text-m);flex-shrink:0;font-size:13px">02</span>
+            <span>Відповідаєте на уточнюючі питання — або я допомагаю скласти технічне завдання</span>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;font-size:13.5px;color:var(--text-s);line-height:1.55">
+            <span style="font-family:'Playfair Display',serif;color:var(--text-m);flex-shrink:0;font-size:13px">03</span>
+            <span>Протягом 2 днів після узгодження отримаєте мудборд з концепцією зйомки</span>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;font-size:13.5px;color:var(--text-s);line-height:1.55">
+            <span style="font-family:'Playfair Display',serif;color:var(--text-m);flex-shrink:0;font-size:13px">04</span>
+            <span>Надсилаєте товар поштою — зйомка починається після узгодження всіх деталей</span>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--surface);padding:32px 36px;border-left:1px solid var(--border)">
+        <div style="font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:16px">Умови роботи</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--text-s);line-height:1.55">
+            <span style="color:var(--accent);flex-shrink:0">→</span>
+            <span>Передоплата 50% — бронювання дати зйомки та початок роботи. При відмові від зйомки переплата не повертається</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--text-s);line-height:1.55">
+            <span style="color:var(--success);flex-shrink:0">→</span>
+            <span>До 3 правок — безкоштовно. Значні правки (доперезйомка, заміна музики / фону / реквізиту в готовій роботі) оплачуються як нове відео</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--text-s);line-height:1.55">
+            <span style="color:var(--text-m);flex-shrink:0">→</span>
+            <span>Предмет зйомки повертається замовнику</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--text-s);line-height:1.55">
+            <span style="color:var(--text-m);flex-shrink:0">→</span>
+            <span>Готові матеріали надсилаю через Telegram</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-note rv" style="margin-bottom:0">
+      <p>Всі пакети включають <span>вихідники — за необхідністю</span>. Формат відео — Reels, Stories, горизонталь — ви обираєте при замовленні.</p>
+    </div>
+
+    <!-- COMPARISON -->
+    <div class="compare-wrap rv">
+      <div class="compare-title">Порівняння пакетів</div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Що входить</th>
+            <th>Разове<br><span style="font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--text-p);text-transform:none;letter-spacing:0">від ₴4 000</span></th>
+            <th>Старт<br><span style="font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--text-p);text-transform:none;letter-spacing:0">₴7 500</span></th>
+            <th class="ct-highlight">Оптимальний<br><span style="font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--accent);text-transform:none;letter-spacing:0">₴11 000</span></th>
+            <th>Максимум<br><span style="font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--text-p);text-transform:none;letter-spacing:0">₴15 000</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Кількість відео</td>
+            <td><span class="ct-val">1</span></td>
+            <td><span class="ct-val">3</span></td>
+            <td class="ct-highlight"><span class="ct-val">5</span></td>
+            <td><span class="ct-val">10</span></td>
+          </tr>
+          <tr>
+            <td>Фото в обробці</td>
+            <td><span class="ct-no">—</span></td>
+            <td><span class="ct-val">30</span></td>
+            <td class="ct-highlight"><span class="ct-val">30</span></td>
+            <td><span class="ct-val">30</span></td>
+          </tr>
+          <tr>
+            <td>Вихідники</td>
+            <td><span class="ct-yes">✓</span></td>
+            <td><span class="ct-yes">✓</span></td>
+            <td class="ct-highlight"><span class="ct-yes">✓</span></td>
+            <td><span class="ct-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Термін виконання</td>
+            <td><span class="ct-val">до 14 дн.</span></td>
+            <td><span class="ct-val">до 14 дн.</span></td>
+            <td class="ct-highlight"><span class="ct-val">до 14 дн.</span></td>
+            <td><span class="ct-val">до 14 дн.</span></td>
+          </tr>
+          <tr>
+            <td>≈ Ціна / відео</td>
+            <td><span class="ct-val">₴3 000</span></td>
+            <td><span class="ct-val">₴2 500</span></td>
+            <td class="ct-highlight"><span class="ct-val" style="color:var(--accent)">₴2 200</span></td>
+            <td><span class="ct-val">₴1 500</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION: AI-КОНТЕНТ ══════════ -->
+<section class="pkg-section hidden" id="sec-ai">
+  <div class="wrap">
+    <div class="section-intro rv">
+      <div class="sec-label">AI-реклама · AI-фотоконтент</div>
+      <h2 class="sec-title">AI-контент, що продає —<em> без студії, без меж</em></h2>
+      <p>Переношу ваш товар у світ AI: реалістичні моделі, трендові рекламні ролики та унікальний фотоконтент — без студійних бюджетів і реальних фотосесій. Перше враження вирішує все. Я роблю так, щоб ваш продукт зупиняв скрол.</p>
+    </div>
+
+    <!-- ── БЛОК 1: AI-ФОТОКОНТЕНТ ── -->
+    <div class="rv" style="margin-bottom:20px">
+      <div style="display:inline-flex;align-items:center;gap:12px;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--text-m)">
+        <span style="width:20px;height:1px;background:var(--border-strong);display:block"></span>
+        Послуга 1 — AI-фотоконтент · Картки · Меню
+      </div>
+    </div>
+
+    <!-- ФОТО ПРАЙС -->
+    <div class="individual-block rv d1" style="margin-bottom:48px">
+      <div class="ind-row">
+        <div>
+          <div class="ind-badge">📸 Генерація зображень</div>
+          <div class="ind-title">AI-фото · Картки товарів · Меню</div>
+          <div class="ind-sub">Рекламні фото, картки для e-commerce, обкладинки, меню · Термін до 1 тижня</div>
+          <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden" id="photo-price-grid">
+            <div style="background:var(--bg);padding:16px 20px;display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:13.5px;color:var(--text-s)">1 фото</span>
+              <span style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--text-p)">₴300</span>
+            </div>
+            <div style="background:var(--bg);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;border-left:1px solid var(--border)">
+              <span style="font-size:13.5px;color:var(--text-s)">3 фото</span>
+              <span style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--text-p)">₴850</span>
+            </div>
+            <div style="background:var(--bg);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)">
+              <span style="font-size:13.5px;color:var(--text-s)">5 фото</span>
+              <span style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--text-p)">₴1 250</span>
+            </div>
+            <div style="background:var(--bg);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;border-left:1px solid var(--border);border-top:1px solid var(--border)">
+              <span style="font-size:13.5px;color:var(--text-s)">10 фото</span>
+              <span style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--text-p)">₴2 000</span>
+            </div>
+            <div style="background:var(--surface-el);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);grid-column:span 2">
+              <span style="font-size:13.5px;color:var(--text-s)">Анімація 1 фото</span>
+              <span style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--accent)">₴500</span>
+            </div>
+          </div>
+          <div style="margin-top:14px;font-size:12.5px;color:var(--text-m);line-height:1.6">Створення відео — окремо, залежно від ТЗ</div>
+        </div>
+        <div class="ind-price-block">
+          <div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-m);margin-bottom:4px">від</div>
+          <div class="price-main"><span class="price-currency">₴</span>300</div>
+          <div class="price-unit">за фото</div>
+          <div style="margin-top:10px;font-size:12px;color:var(--text-m);line-height:1.55;max-width:180px;text-align:right">Надішліть фото товару — перенесу на AI-модель або локацію</div>
+          <a href="https://t.me/svitlanavideo" target="_blank" class="ind-cta" style="margin-top:16px">Замовити →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── БЛОК 2: AI-ВІДЕО ── -->
+    <div class="rv" style="margin-bottom:20px">
+      <div style="display:inline-flex;align-items:center;gap:12px;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--text-m)">
+        <span style="width:20px;height:1px;background:var(--border-strong);display:block"></span>
+        Послуга 2 — AI-рекламні відео
+      </div>
+    </div>
+
+    <!-- AI VIDEO PACKAGES -->
+    <div class="pkg-grid rv d2">
+
+      <!-- БАЗОВИЙ -->
+      <div class="pkg-card">
+        <div class="pkg-num">01</div>
+        <div class="pkg-name">Базовий</div>
+        <div class="pkg-desc">Простий ролик без розробки концепції</div>
+        <div class="pkg-price">
+          <span class="p-cur">$</span><span class="p-amt">50</span>
+          <div class="p-label">за відео</div>
+        </div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-list">
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>До <strong style="color:var(--text-p)">10 секунд</strong> · 4–6 кадрів</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>Монтаж + базовий саунд</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>Термін до 3 днів</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon plus"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="8" x2="13" y2="8"/><line x1="8" y1="3" x2="8" y2="13"/></svg></div>
+            <span style="color:var(--text-m);font-size:12px">ТЗ надає замовник</span>
+          </div>
+        </div>
+        <a href="https://t.me/svitlanavideo" target="_blank" class="pkg-cta">Обрати</a>
+      </div>
+
+      <!-- СТАНДАРТ — FEATURED -->
+      <div class="pkg-card featured">
+        <div class="pkg-badge">✦ Найпопулярніший</div>
+        <div class="pkg-num">02</div>
+        <div class="pkg-name">Стандарт</div>
+        <div class="pkg-desc">Повноцінний рекламний ролик під ключ</div>
+        <div class="pkg-price">
+          <span class="p-cur">$</span><span class="p-amt">250</span>
+          <div class="p-label">за відео</div>
+        </div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-list">
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>До <strong style="color:var(--text-p)">40 секунд</strong></span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>Сценарій + сторіборд</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>Монтаж + кольорокорекція + саунд-дизайн</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>2 раунди правок — коригування в рамках затвердженої концепції</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>Термін до 14 днів</span>
+          </div>
+        </div>
+        <a href="https://t.me/svitlanavideo" target="_blank" class="pkg-cta">Обрати</a>
+      </div>
+
+      <!-- ПРОЄКТНА РОБОТА -->
+      <div class="pkg-card">
+        <div class="pkg-num">03</div>
+        <div class="pkg-name">Проєктна робота</div>
+        <div class="pkg-desc">Від 4 відео · умови за домовленістю</div>
+        <div class="pkg-price">
+          <span class="p-cur">$</span><span class="p-amt">200</span>
+          <div class="p-label">від · за відео</div>
+        </div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-list">
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>Від <strong style="color:var(--text-p)">4 відео</strong> в пакеті</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>Складність і задача — індивідуально</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon check"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,8 6,12 14,4"/></svg></div>
+            <span>Наповнення пакету — за брифом</span>
+          </div>
+          <div class="pkg-li">
+            <div class="pkg-li-icon plus"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="8" x2="13" y2="8"/><line x1="8" y1="3" x2="8" y2="13"/></svg></div>
+            <span style="color:var(--accent)">Обговорюємо в особистих</span>
+          </div>
+        </div>
+        <a href="https://t.me/svitlanavideo" target="_blank" class="pkg-cta">Написати →</a>
+      </div>
+    </div>
+
+    <!-- ЩО ВПЛИВАЄ НА ЦІНУ -->
+    <div class="rv d3" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;margin-bottom:32px" id="ai-price-factors">
+      <div style="background:var(--surface);padding:28px 32px">
+        <div style="font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:16px">Що впливає на ціну</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--text-s);line-height:1.55">
+            <span style="color:var(--accent);flex-shrink:0">→</span>
+            <span><strong style="color:var(--text-p)">Тривалість:</strong> 60 сек ≠ 2×30 сек — зростає рівень складності</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--text-s);line-height:1.55">
+            <span style="color:var(--accent);flex-shrink:0">→</span>
+            <span><strong style="color:var(--text-p)">Консистентність персонажа:</strong> одне обличчя у всіх кадрах — дорожче</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--text-s);line-height:1.55">
+            <span style="color:var(--accent);flex-shrink:0">→</span>
+            <span><strong style="color:var(--text-p)">Складність сцени:</strong> спецефекти, динаміка, кілька персонажів — дорожче</span>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--surface);padding:28px 32px;border-left:1px solid var(--border)">
+        <div style="font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:16px">Додаткові умови</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--text-s);line-height:1.55">
+            <span style="color:var(--text-m);flex-shrink:0">→</span>
+            <span>Кожен додатковий раунд правок <strong style="color:var(--text-p)">+20%</strong></span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--text-s);line-height:1.55">
+            <span style="color:var(--text-m);flex-shrink:0">→</span>
+            <span>Терміновість <strong style="color:var(--text-p)">+50%</strong></span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--text-s);line-height:1.55">
+            <span style="color:var(--text-m);flex-shrink:0">→</span>
+            <span>Ціни в $ — розрахунок за курсом на день оплати</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta-block">
+  <div class="wrap">
+    <div class="rv" style="position:relative;z-index:1">
+      <div class="cta-label">Готові почати?</div>
+      <h2 class="cta-h2">Розкажіть про вашу задачу — <em>решта за мною</em></h2>
+      <p class="cta-sub">Відповідаю протягом кількох годин. Обговоримо формат, терміни та вартість.</p>
+      <div class="cc-row">
+        <a href="https://t.me/svitlanavideo" class="cc" target="_blank" rel="noopener">
+          <div class="cc-ico"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg></div>
+          <span class="cc-lbl">Telegram</span><span class="cc-val">@svitlanavideo</span>
+        </a>
+        <a href="https://www.instagram.com/svetlana_svideocontent/" class="cc" target="_blank" rel="noopener">
+          <div class="cc-ico"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="var(--accent)" stroke="none"/></svg></div>
+          <span class="cc-lbl">Instagram</span><span class="cc-val">@svetlana_svideocontent</span>
+        </a>
+        <a href="tel:+380685192551" class="cc">
+          <div class="cc-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.6 1.3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 9a16 16 0 005.56 5.56l1.06-.92a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 16v.92z"/></svg></div>
+          <span class="cc-lbl">Телефон</span><span class="cc-val">+38 068 519 25 51</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="f-logo">Світлана</span>
+  <span class="f-mid">© 2026 · Відеограф · AI-контент · Одеса</span>
+  <div class="f-links">
+    <a href="index.html">Головна</a>
+    <a href="index.html#portfolio">Роботи</a>
+    <a href="https://t.me/svitlanavideo" target="_blank">Написати</a>
+  </div>
+</footer>
+
+<script>
+// NAV SOLID
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 60), {passive:true});
+
+// MOBILE MENU
+function toggleMenu() {
+  document.getElementById('mobMenu').classList.toggle('open');
+  document.getElementById('burger').classList.toggle('x');
+}
+function closeMob() {
+  document.getElementById('mobMenu').classList.remove('open');
+  document.getElementById('burger').classList.remove('x');
+}
+
+// TAB SWITCHER
+function switchTab(tab) {
+  const btns = document.querySelectorAll('.tab-btn');
+  btns.forEach((b,i) => b.classList.toggle('active', (i===0 && tab==='video') || (i===1 && tab==='ai')));
+
+  const secVideo = document.getElementById('sec-video');
+  const secAi = document.getElementById('sec-ai');
+
+  if(tab === 'video') {
+    secVideo.classList.remove('hidden');
+    secAi.classList.add('hidden');
+  } else {
+    secVideo.classList.add('hidden');
+    secAi.classList.remove('hidden');
+  }
+
+  // re-trigger reveal for newly shown section
+  setTimeout(() => {
+    const section = tab === 'video' ? secVideo : secAi;
+    section.querySelectorAll('.rv').forEach(el => {
+      el.classList.remove('on');
+      void el.offsetHeight;
+      obs.observe(el);
+    });
+  }, 50);
+}
+
+// SCROLL REVEAL
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, {threshold: 0.08, rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
