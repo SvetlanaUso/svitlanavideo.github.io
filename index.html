@@ -122,7 +122,7 @@ nav.solid{background:rgba(13,8,6,.96);backdrop-filter:blur(20px);padding:15px 64
 .port-hdr p{font-size:15px;line-height:1.75;color:var(--text-s);margin-top:14px}
 .port-grid{display:grid;grid-template-columns:1fr 2fr;gap:14px}
 .port-col{display:flex;flex-direction:column;gap:14px}
-.port-row{display:grid;grid-template-columns:1fr 1.8fr;gap:14px}
+.port-row{display:grid;grid-template-columns:1fr 1fr 1.8fr;gap:14px}
 .vcard{position:relative;overflow:hidden;border-radius:3px;background:var(--bg);cursor:pointer;transition:transform .4s var(--ease)}
 .vcard:hover{transform:scale(1.012)}
 .vcard.portrait{aspect-ratio:9/16}
@@ -336,7 +336,7 @@ footer{padding:36px 64px;border-top:1px solid var(--border);display:flex;justify
           <div class="vtag">Предметна зйомка</div>
           <a class="vyt" href="https://youtu.be/tk3zaxldC5k" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ YT</a>
         </div>
-        <!-- Portrait Short + Landscape поруч -->
+        <!-- Two portraits + Landscape -->
         <div class="port-row">
           <div class="vcard portrait rvR d2" id="vc4" style="min-height:180px">
             <img class="vthumb" src="https://img.youtube.com/vi/L9a2pbQJ8oI/maxresdefault.jpg" alt="Short" onerror="this.src='https://img.youtube.com/vi/L9a2pbQJ8oI/hqdefault.jpg'">
@@ -344,7 +344,13 @@ footer{padding:36px 64px;border-top:1px solid var(--border);display:flex;justify
             <div class="vtag">Shorts</div>
             <a class="vyt" href="https://www.youtube.com/shorts/L9a2pbQJ8oI" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ YT</a>
           </div>
-          <div class="vcard landscape rvR d3" id="vc3" style="align-self:stretch">
+          <div class="vcard portrait rvR d3" id="vc5" style="min-height:180px">
+            <img class="vthumb" src="https://img.youtube.com/vi/sRzYD-li8Cg/maxresdefault.jpg" alt="Short" onerror="this.src='https://img.youtube.com/vi/sRzYD-li8Cg/hqdefault.jpg'">
+            <div class="vover" onclick="loadVid('vc5','sRzYD-li8Cg')"><div class="vplay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+            <div class="vtag">Shorts</div>
+            <a class="vyt" href="https://youtube.com/shorts/sRzYD-li8Cg" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ YT</a>
+          </div>
+          <div class="vcard landscape rvR d4" id="vc3" style="align-self:stretch">
             <img class="vthumb" src="https://img.youtube.com/vi/jSG7CYC8EqY/maxresdefault.jpg" alt="Commercial" onerror="this.src='https://img.youtube.com/vi/jSG7CYC8EqY/hqdefault.jpg'">
             <div class="vover" onclick="loadVid('vc3','jSG7CYC8EqY')"><div class="vplay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
             <div class="vtag">Комерційне відео</div>
