@@ -9,34 +9,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FAF5F5;--bg2:#F0E6E6;--bg3:#E4D0D0;
-  --rose:#C4889A;--rosed:#9B5E72;--rosel:#DEB8C4;
-  --dark:#1C1212;--mid:#7A5F5F;--w:#fff;
+  --bg:#0F0906;
+  --surface:#17100A;
+  --sfc2:#1F1510;
+  --border:#2A1A10;
+  --tp:#F2EDE8;
+  --ts:#B8A898;
+  --tm:#7A6558;
+  --rose:#C4889A;
+  --rosed:#9B5E72;
+  --rosel:#DEB8C4;
   --ease:cubic-bezier(0.16,1,0.3,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--rose)}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--tp);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--rose)}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:22px 56px;display:flex;justify-content:space-between;align-items:center;transition:all .4s var(--ease)}
-nav.solid{background:rgba(250,245,245,.97);backdrop-filter:blur(16px);padding:14px 56px;box-shadow:0 1px 24px rgba(196,136,154,.12)}
-.nav-logo{font-family:'Playfair Display',serif;font-size:28px;font-style:italic;color:var(--dark);cursor:pointer;letter-spacing:.02em}
+nav.solid{background:rgba(15,9,6,.97);backdrop-filter:blur(16px);padding:14px 56px;border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:28px;font-style:italic;color:var(--tp);cursor:pointer}
 .nav-ul{display:flex;gap:38px;list-style:none}
-.nav-ul a{font-size:10px;font-weight:600;letter-spacing:2.8px;text-transform:uppercase;color:var(--mid);cursor:pointer;transition:color .3s;position:relative}
+.nav-ul a{font-size:10px;font-weight:600;letter-spacing:2.8px;text-transform:uppercase;color:var(--tm);cursor:pointer;transition:color .3s;position:relative}
 .nav-ul a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--rose);transition:width .3s}
 .nav-ul a:hover{color:var(--rose)}.nav-ul a:hover::after{width:100%}
 .nav-cta{background:var(--rose);color:#fff;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:11px 24px;border-radius:2px;cursor:pointer;border:none;transition:background .2s}
 .nav-cta:hover{background:var(--rosed)}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:1000}
-.burger span{width:22px;height:1.5px;background:var(--dark);display:block;transition:all .3s}
+.burger span{width:22px;height:1.5px;background:var(--tp);display:block;transition:all .3s}
 .burger.x span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 .burger.x span:nth-child(2){opacity:0}
 .burger.x span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-.mob-menu{position:fixed;inset:0;z-index:400;background:rgba(250,245,245,.98);backdrop-filter:blur(16px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;transform:translateX(100%);transition:transform .5s var(--ease)}
+.mob-menu{position:fixed;inset:0;z-index:400;background:rgba(15,9,6,.98);backdrop-filter:blur(16px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;transform:translateX(100%);transition:transform .5s var(--ease)}
 .mob-menu.open{transform:translateX(0)}
-.mob-menu a{font-family:'Playfair Display',serif;font-size:34px;font-style:italic;color:var(--dark);cursor:pointer;transition:color .2s}
+.mob-menu a{font-family:'Playfair Display',serif;font-size:34px;font-style:italic;color:var(--tp);cursor:pointer;transition:color .2s}
 .mob-menu a:hover{color:var(--rose)}
 
 /* HERO */
@@ -46,17 +53,17 @@ nav.solid{background:rgba(250,245,245,.97);backdrop-filter:blur(16px);padding:14
 .hero-media img.loaded{opacity:1}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(13,8,6,.92) 0%,rgba(13,8,6,.55) 52%,rgba(13,8,6,.1) 100%),linear-gradient(to top,rgba(13,8,6,.98) 0%,rgba(13,8,6,.45) 28%,transparent 62%)}
 .hero-content{position:relative;z-index:2;padding:120px 56px 64px;max-width:780px}
-.hero-name-big{font-family:'Playfair Display',serif;font-size:clamp(38px,7vw,56px);font-weight:700;font-style:italic;color:var(--w);line-height:1;margin-bottom:10px;opacity:0;animation:up .9s var(--ease) forwards .1s}
+.hero-name-big{font-family:'Playfair Display',serif;font-size:clamp(38px,7vw,56px);font-weight:700;font-style:italic;color:#fff;line-height:1;margin-bottom:10px;opacity:0;animation:up .9s var(--ease) forwards .1s}
 .h-eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:10px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--rose);margin-bottom:24px;opacity:0;animation:up .9s var(--ease) forwards .2s}
 .h-eyebrow::before{content:'';width:28px;height:1px;background:var(--rose);flex-shrink:0}
-.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(44px,6.5vw,86px);font-weight:700;line-height:1.04;letter-spacing:-.02em;color:var(--w);margin-bottom:24px;opacity:0;animation:up .9s var(--ease) forwards .4s}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(44px,6.5vw,86px);font-weight:700;line-height:1.04;letter-spacing:-.02em;color:#fff;margin-bottom:24px;opacity:0;animation:up .9s var(--ease) forwards .4s}
 .hero-h1 em{font-style:italic;color:var(--rosel);display:block}
-.hero-sub{font-size:15px;line-height:1.82;color:rgba(255,255,255,.75);max-width:480px;margin-bottom:48px;opacity:0;animation:up .9s var(--ease) forwards .6s}
+.hero-sub{font-size:15px;line-height:1.82;color:rgba(255,255,255,.7);max-width:480px;margin-bottom:48px;opacity:0;animation:up .9s var(--ease) forwards .6s}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:up .9s var(--ease) forwards .8s}
 .btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--rose);color:#fff;font-size:12px;font-weight:600;padding:14px 28px;border-radius:2px;cursor:pointer;border:none;transition:background .2s}
 .btn-p:hover{background:var(--rosed)}
 .hero-scroll{position:absolute;right:56px;bottom:48px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fi 1s forwards 1.4s}
-.hero-scroll span{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);writing-mode:vertical-rl}
+.hero-scroll span{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);writing-mode:vertical-rl}
 .s-bar{width:1px;height:56px;background:linear-gradient(var(--rose),transparent);animation:sbar 2s ease-in-out infinite}
 @keyframes sbar{0%,100%{opacity:1}50%{opacity:.3}}
 @keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
@@ -75,99 +82,86 @@ nav.solid{background:rgba(250,245,245,.97);backdrop-filter:blur(16px);padding:14
 .wrap{max-width:1280px;margin:0 auto}
 .lbl{font-size:10px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--rose);margin-bottom:12px;display:flex;align-items:center;gap:11px}
 .lbl::before{content:'';width:20px;height:1px;background:var(--rose);flex-shrink:0}
-.stitle{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,48px);font-weight:700;color:var(--dark);line-height:1.14;margin-bottom:18px}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,48px);font-weight:700;color:var(--tp);line-height:1.14;margin-bottom:18px}
 .stitle em{font-style:italic;color:var(--rose)}
 
 /* HOW */
-#how{padding:128px 56px;border-top:1px solid var(--bg3);background:var(--w)}
+#how{padding:128px 56px;border-top:1px solid var(--border);background:var(--surface)}
 .how-hdr{max-width:520px;margin-bottom:72px}
-.how-hdr p{font-size:14px;line-height:1.88;color:var(--mid);margin-top:12px}
-.formats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bg3);border:1px solid var(--bg3);border-radius:4px;overflow:hidden}
+.how-hdr p{font-size:14px;line-height:1.88;color:var(--ts);margin-top:12px}
+.formats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .fmt-card{background:var(--bg);padding:40px 32px;transition:background .25s}
-.fmt-card:hover{background:rgba(196,136,154,.05)}
-.fmt-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--bg3);line-height:1;margin-bottom:20px;letter-spacing:-.02em}
-.fmt-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--dark);margin-bottom:12px}
-.fmt-desc{font-size:14px;line-height:1.78;color:var(--mid)}
-.how-note{margin-top:48px;padding:28px 32px;border:1px solid var(--bg3);border-radius:3px;background:rgba(196,136,154,.04)}
-.how-note p{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:var(--mid);line-height:1.65}
+.fmt-card:hover{background:var(--sfc2)}
+.fmt-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--border);line-height:1;margin-bottom:20px;letter-spacing:-.02em}
+.fmt-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--tp);margin-bottom:12px}
+.fmt-desc{font-size:14px;line-height:1.78;color:var(--ts)}
+.how-note{margin-top:48px;padding:28px 32px;border:1px solid rgba(196,136,154,.2);border-radius:3px;background:rgba(196,136,154,.05)}
+.how-note p{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:var(--ts);line-height:1.65}
 .how-note span{color:var(--rose)}
 
 /* SERVICES */
-#services{padding:128px 56px;border-top:1px solid var(--bg3)}
+#services{padding:128px 56px;border-top:1px solid var(--border);background:var(--bg)}
 .srv-hdr{margin-bottom:64px}
-.srv-hdr p{font-size:14px;line-height:1.88;color:var(--mid);margin-top:12px;max-width:480px}
-.srv-list{border-top:1px solid var(--bg3)}
-.srv-row{display:grid;grid-template-columns:56px 260px 1fr;gap:40px;align-items:start;padding:36px 0;border-bottom:1px solid var(--bg3);transition:background .2s}
-.srv-row:hover{background:rgba(196,136,154,.03);margin:0 -16px;padding-left:16px;padding-right:16px}
-.srv-n{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--mid);padding-top:4px}
-.srv-name{font-family:'Playfair Display',serif;font-size:21px;font-weight:600;color:var(--dark)}
-.srv-desc{font-size:14px;line-height:1.82;color:var(--mid)}
-.price-note{margin-top:48px;padding-top:32px;border-top:1px solid var(--bg3);text-align:center;font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:var(--mid)}
-.price-note span{color:var(--rose);border-bottom:1px solid var(--rosel);padding-bottom:1px}
+.srv-hdr p{font-size:14px;line-height:1.88;color:var(--ts);margin-top:12px;max-width:480px}
+.srv-list{border-top:1px solid var(--border)}
+.srv-row{display:grid;grid-template-columns:56px 260px 1fr;gap:40px;align-items:start;padding:36px 0;border-bottom:1px solid var(--border);transition:background .2s}
+.srv-row:hover{background:rgba(196,136,154,.04);margin:0 -16px;padding-left:16px;padding-right:16px}
+.srv-n{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--tm);padding-top:4px}
+.srv-name{font-family:'Playfair Display',serif;font-size:21px;font-weight:600;color:var(--tp)}
+.srv-desc{font-size:14px;line-height:1.82;color:var(--ts)}
+.price-note{margin-top:48px;padding-top:32px;border-top:1px solid var(--border);text-align:center;font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:var(--tm)}
+.price-note span{color:var(--rose);border-bottom:1px solid rgba(196,136,154,.3);padding-bottom:1px}
 
 /* PORTFOLIO */
-#portfolio{padding:128px 56px;border-top:1px solid var(--bg3);background:var(--dark)}
-#portfolio .lbl{color:var(--rosel)}
-#portfolio .lbl::before{background:var(--rosel)}
-#portfolio .stitle{color:var(--w)}
-
-/* Portfolio section labels */
+#portfolio{padding:128px 56px;border-top:1px solid var(--border);background:var(--surface)}
 .port-sec-lbl{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(222,184,196,.6);margin-bottom:14px;margin-top:40px;display:flex;align-items:center;gap:10px}
 .port-sec-lbl:first-of-type{margin-top:48px}
 .port-sec-lbl::before{content:'';width:18px;height:1px;background:rgba(222,184,196,.5);flex-shrink:0}
-
-/* Landscape grid 2 columns */
 .lgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .lgrid .full{grid-column:1/-1}
-
-/* Portrait grid 2 columns */
 .pgrid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-
-/* Video card shared */
-.vcard{position:relative;overflow:hidden;border-radius:3px;background:#2a1515;cursor:pointer;transition:transform .4s var(--ease)}
+.vcard{position:relative;overflow:hidden;border-radius:3px;background:#1a0a0a;cursor:pointer;transition:transform .4s var(--ease)}
 .vcard:hover{transform:scale(1.012)}
 .vcard.portrait{aspect-ratio:9/16}
 .vcard.landscape{aspect-ratio:16/9}
-.vthumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s var(--ease);background:linear-gradient(135deg,#2a1212,#3a1a22)}
+.vthumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s var(--ease);background:linear-gradient(135deg,#1a0808,#2a1015)}
 .vcard:hover .vthumb{transform:scale(1.04)}
-.vover{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(20,8,8,.78));display:flex;align-items:center;justify-content:center}
-.vcard:hover .vover{background:linear-gradient(to bottom,rgba(13,8,6,.08) 35%,rgba(13,8,6,.65))}
+.vover{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(10,4,4,.82));display:flex;align-items:center;justify-content:center}
 .vplay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;transition:all .3s}
 .vplay svg{width:15px;height:15px;fill:#fff;margin-left:2px}
 .vcard:hover .vplay{background:rgba(196,136,154,.55);border-color:var(--rosel);transform:translate(-50%,-50%) scale(1.1)}
 .vtag{position:absolute;bottom:12px;left:14px;font-size:9.5px;font-weight:600;letter-spacing:2.2px;text-transform:uppercase;color:rgba(255,255,255,.5)}
-.vyt{position:absolute;top:12px;right:12px;z-index:10;display:inline-flex;align-items:center;gap:4px;background:rgba(13,8,6,.65);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55);text-decoration:none;font-size:10px;font-weight:600;letter-spacing:1px;padding:5px 10px;border-radius:2px;transition:all .2s}
+.vyt{position:absolute;top:12px;right:12px;z-index:10;display:inline-flex;align-items:center;gap:4px;background:rgba(10,4,4,.65);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55);text-decoration:none;font-size:10px;font-weight:600;letter-spacing:1px;padding:5px 10px;border-radius:2px;transition:all .2s}
 .vyt:hover{background:rgba(196,136,154,.55);border-color:var(--rosel);color:#fff}
 .vcard iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
-
 .port-more{margin-top:28px;text-align:right}
-.port-more a{font-size:10.5px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--rosel);cursor:pointer;border-bottom:1px solid var(--bg3);padding-bottom:2px;transition:all .2s;text-decoration:none}
-.port-more a:hover{color:var(--w);border-color:var(--w)}
+.port-more a{font-size:10.5px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--rosel);cursor:pointer;border-bottom:1px solid var(--border);padding-bottom:2px;transition:all .2s;text-decoration:none}
+.port-more a:hover{color:#fff;border-color:rgba(222,184,196,.4)}
 
 /* CONTACT */
-#contact{padding:128px 56px;border-top:1px solid var(--bg3);text-align:center;position:relative;overflow:hidden;background:linear-gradient(160deg,#1A0F0A 0%,#0D0806 50%,#1A0F0A 100%)}
-#contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(196,136,154,.09) 0%,transparent 70%);pointer-events:none}
+#contact{padding:128px 56px;border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden;background:var(--bg)}
+#contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(196,136,154,.08) 0%,transparent 70%);pointer-events:none}
 .cta-inner{position:relative;z-index:1}
 .cta-label{display:inline-flex;align-items:center;gap:12px;font-size:10px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--rose);margin-bottom:24px}
 .cta-label::before{content:'';width:20px;height:1px;background:var(--rose)}
-.cta-h2{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,62px);font-weight:700;line-height:1.1;letter-spacing:-.02em;color:var(--w);margin-bottom:20px;max-width:680px;margin-left:auto;margin-right:auto}
+.cta-h2{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,62px);font-weight:700;line-height:1.1;letter-spacing:-.02em;color:var(--tp);margin-bottom:20px;max-width:680px;margin-left:auto;margin-right:auto}
 .cta-h2 em{font-style:italic;color:var(--rose)}
-.cta-sub{font-size:15px;line-height:1.75;color:var(--mid);max-width:420px;margin:0 auto 56px}
+.cta-sub{font-size:15px;line-height:1.75;color:var(--ts);max-width:420px;margin:0 auto 56px}
 .cc-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
-.cc{display:flex;flex-direction:column;align-items:center;gap:8px;padding:28px 32px;border:1px solid rgba(42,30,20,.8);border-radius:3px;text-decoration:none;min-width:172px;background:rgba(23,16,10,.7);backdrop-filter:blur(8px);transition:all .3s var(--ease)}
-.cc:hover{border-color:rgba(196,136,154,.4);background:rgba(196,136,154,.05);transform:translateY(-4px)}
+.cc{display:flex;flex-direction:column;align-items:center;gap:8px;padding:28px 32px;border:1px solid var(--border);border-radius:3px;text-decoration:none;min-width:172px;background:var(--surface);transition:all .3s var(--ease)}
+.cc:hover{border-color:rgba(196,136,154,.4);background:rgba(196,136,154,.06);transform:translateY(-4px)}
 .cc-ico{width:36px;height:36px;display:flex;align-items:center;justify-content:center}
 .cc-ico svg{width:20px;height:20px;stroke:var(--rose);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.cc-lbl{font-size:9.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--mid)}
-.cc-val{font-size:13px;font-weight:600;color:var(--w)}
+.cc-lbl{font-size:9.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--tm)}
+.cc-val{font-size:13px;font-weight:600;color:var(--tp)}
 
 /* FOOTER */
-footer{padding:36px 56px;border-top:1px solid var(--bg3);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.f-logo{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--mid)}
-.f-mid{font-size:11px;color:var(--mid)}
+footer{padding:36px 56px;border-top:1px solid var(--border);background:var(--bg);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--tm)}
+.f-mid{font-size:11px;color:var(--tm)}
 .f-links{display:flex;gap:24px}
-.f-links a{font-size:11px;color:var(--mid);cursor:pointer;transition:color .2s;text-decoration:none}
-.f-links a:hover{color:var(--dark)}
+.f-links a{font-size:11px;color:var(--tm);cursor:pointer;transition:color .2s;text-decoration:none}
+.f-links a:hover{color:var(--tp)}
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -175,14 +169,11 @@ footer{padding:36px 56px;border-top:1px solid var(--bg3);display:flex;justify-co
   #how,#services,#portfolio,#contact{padding-left:40px;padding-right:40px}
   footer{padding-left:40px;padding-right:40px}
   .srv-row{display:block;padding:24px 0}
-  .srv-n{display:none}
-  .srv-name{margin-bottom:8px}
-  .srv-desc{font-size:14px;line-height:1.7}
+  .srv-n{display:none}.srv-name{margin-bottom:8px}
 }
 @media(max-width:768px){
   nav,nav.solid{padding:16px 24px}
-  .nav-ul,.nav-cta{display:none}
-  .nav-logo{display:none}
+  .nav-ul,.nav-cta,.nav-logo{display:none}
   .burger{display:flex}
   #hero{min-height:100dvh}
   .hero-content{padding:80px 24px 48px}
@@ -191,12 +182,9 @@ footer{padding:36px 56px;border-top:1px solid var(--bg3);display:flex;justify-co
   footer{padding:28px 24px;flex-direction:column;text-align:center}
   .formats{grid-template-columns:1fr}
   .srv-row{display:block;padding:22px 0}
-  .lgrid{grid-template-columns:1fr}
-  .lgrid .full{grid-column:auto}
-  .pgrid2{grid-template-columns:1fr}
+  .lgrid,.lgrid .full,.pgrid2{grid-template-columns:1fr}
   .cc-row{flex-direction:column;align-items:stretch}
   .cc{min-width:auto}
-  .how-hdr{text-align:left}
 }
 </style>
 </head>
@@ -212,7 +200,7 @@ footer{padding:36px 56px;border-top:1px solid var(--bg3);display:flex;justify-co
     <li><a onclick="goTo('contact')">Контакти</a></li>
   </ul>
   <button class="nav-cta" onclick="goTo('contact')">Написати</button>
-  <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Меню"><span></span><span></span><span></span></button>
+  <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- MOBILE MENU -->
@@ -226,7 +214,7 @@ footer{padding:36px 56px;border-top:1px solid var(--bg3);display:flex;justify-co
 <!-- HERO -->
 <section id="hero">
   <div class="hero-media">
-    <img id="heroImg" src="photo.jpg" alt="Світлана" onload="this.classList.add('loaded')" onerror="this.remove()">
+    <img id="heroImg" src="https://svitlanavideo.github.io/photo.jpg" alt="Світлана" onload="this.classList.add('loaded')" onerror="this.remove()">
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -234,15 +222,13 @@ footer{padding:36px 56px;border-top:1px solid var(--bg3);display:flex;justify-co
     <div class="h-eyebrow">Відеограф · AI-контент · Одеса</div>
     <h1 class="hero-h1">Контент, що зупиняє.<em>Відео, що продає.</em></h1>
     <p class="hero-sub">Створюю рекламні креативи, що пробивають банерну сліпоту та збільшують конверсію. Підбираю формат індивідуально під ваші бізнес-задачі.</p>
-    <div class="hero-actions">
-      <button class="btn-p" onclick="goTo('contact')">Обговорити проєкт</button>
-    </div>
+    <div class="hero-actions"><button class="btn-p" onclick="goTo('contact')">Обговорити проєкт</button></div>
   </div>
   <div class="hero-scroll"><span>scroll</span><div class="s-bar"></div></div>
 </section>
 
 <!-- HOW / FORMATS -->
-<section id="how" style="padding:128px 56px;border-top:1px solid var(--bg3);background:var(--w)">
+<section id="how">
   <div class="wrap">
     <div class="how-hdr rv">
       <div class="lbl">Формат роботи</div>
@@ -258,7 +244,7 @@ footer{padding:36px 56px;border-top:1px solid var(--bg3);display:flex;justify-co
       <div class="fmt-card rv d2">
         <div class="fmt-num">02</div>
         <h3 class="fmt-title">Предметна зйомка (Віддалено)</h3>
-        <p class="fmt-desc">Ви просто надсилаєте мені продукт поштою. Я можу зробити стильну класичну зйомку з ідеальним світлом або потужне комбо: реальний товар + AI-генерація.</p>
+        <p class="fmt-desc">Ви просто надсилаєте мені продукт поштою. Стильна класична зйомка з ідеальним світлом або потужне комбо: реальний товар + AI-генерація.</p>
       </div>
       <div class="fmt-card rv d3">
         <div class="fmt-num">03</div>
@@ -273,7 +259,7 @@ footer{padding:36px 56px;border-top:1px solid var(--bg3);display:flex;justify-co
 </section>
 
 <!-- SERVICES -->
-<section id="services" style="padding:128px 56px;border-top:1px solid var(--bg3)">
+<section id="services">
   <div class="wrap">
     <div class="srv-hdr rv">
       <div class="lbl">Послуги</div>
@@ -281,102 +267,77 @@ footer{padding:36px 56px;border-top:1px solid var(--bg3);display:flex;justify-co
       <p>Кожен формат — під конкретну задачу. Без шаблонів і «зроблю як завжди».</p>
     </div>
     <div class="srv-list">
-      <div class="srv-row rv d1">
-        <span class="srv-n">01</span>
-        <div class="srv-name">AI-реклама</div>
-        <p class="srv-desc">Рекламні ролики, повністю створені через нейромережі, які з першої секунди чіпляють увагу. AI дозволяє зробити неможливе та максимально креативно показати ваш продукт або послугу для WOW-ефекту.</p>
-      </div>
-      <div class="srv-row rv d2">
-        <span class="srv-n">02</span>
-        <div class="srv-name">Предметна зйомка</div>
-        <p class="srv-desc">Мобільна відеографія з професійним світлом для beauty-сфери, косметики та естетичних товарів. Створюю кінематографічний стиль, який миттєво виділяє ваш продукт серед конкурентів.</p>
-      </div>
-      <div class="srv-row rv d3">
-        <span class="srv-n">03</span>
-        <div class="srv-name">Reels & TikTok</div>
-        <p class="srv-desc">Динамічний комерційний контент під актуальні тренди — від розробки сценарію до фінального ролика. Формат, який пробиває банерну сліпоту і гарантовано зупиняє пролистування стрічки.</p>
-      </div>
-      <div class="srv-row rv d4">
-        <span class="srv-n">04</span>
-        <div class="srv-name">AI-фотоконтент</div>
-        <p class="srv-desc">Генерація унікальних рекламних фото через нейромережі для e-commerce та соціальних мереж. Переношу ваш товар на реалістичних AI-моделей без реальних фотосесій. Створюю картки товарів для інтернет-магазинів, обкладинки для соціальних мереж, коктейльні карти та меню для ресторанів і кафе — швидко, стильно і без витрат на студійну зйомку.</p>
-      </div>
-      <div class="srv-row rv d5">
-        <span class="srv-n">05</span>
-        <div class="srv-name">Повний продакшн</div>
-        <p class="srv-desc">Концепція, візуальний storyboard, зйомка, динамічний монтаж, кольорокорекція та саунд-дизайн. Ви отримуєте готовий інструмент для продажів — повністю без вашої участі в рутині процесу.</p>
-      </div>
+      <div class="srv-row rv d1"><span class="srv-n">01</span><div class="srv-name">AI-реклама</div><p class="srv-desc">Рекламні ролики, повністю створені через нейромережі, які з першої секунди чіпляють увагу. AI дозволяє максимально креативно показати ваш продукт для WOW-ефекту.</p></div>
+      <div class="srv-row rv d2"><span class="srv-n">02</span><div class="srv-name">Предметна зйомка</div><p class="srv-desc">Мобільна відеографія з професійним світлом для beauty-сфери, косметики та естетичних товарів. Кінематографічний стиль, який виділяє ваш продукт серед конкурентів.</p></div>
+      <div class="srv-row rv d3"><span class="srv-n">03</span><div class="srv-name">Reels & TikTok</div><p class="srv-desc">Динамічний комерційний контент під актуальні тренди — від розробки сценарію до фінального ролика. Формат, який пробиває банерну сліпоту і зупиняє пролистування.</p></div>
+      <div class="srv-row rv d4"><span class="srv-n">04</span><div class="srv-name">AI-фотоконтент</div><p class="srv-desc">Генерація унікальних рекламних фото через нейромережі для e-commerce та соціальних мереж. Картки товарів, обкладинки, коктейльні карти та меню для HoReCa — без витрат на студійну зйомку.</p></div>
+      <div class="srv-row rv d5"><span class="srv-n">05</span><div class="srv-name">Повний продакшн</div><p class="srv-desc">Концепція, storyboard, зйомка, монтаж, кольорокорекція та саунд-дизайн. Ви отримуєте готовий інструмент для продажів — без вашої участі в рутині процесу.</p></div>
     </div>
-    <div class="price-note rv">Вартість — <span>за особистою домовленістю</span>, залежно від вашої бізнес-задачі, обраного формату та обсягу роботи.</div>
+    <div class="price-note rv">Вартість — <span>за особистою домовленістю</span>, залежно від задачі, формату та обсягу.</div>
   </div>
 </section>
 
 <!-- PORTFOLIO -->
-<section id="portfolio" style="padding:128px 56px;border-top:1px solid var(--bg3);background:var(--dark)">
+<section id="portfolio">
   <div class="wrap">
-    <div class="rv">
-      <div class="lbl">Мої роботи</div>
-      <h2 class="stitle">Портфоліо</h2>
-    </div>
+    <div class="rv"><div class="lbl">Мої роботи</div><h2 class="stitle">Портфоліо</h2></div>
 
-    <!-- LANDSCAPE 16:9 -->
     <div class="port-sec-lbl rv">Відео 16:9</div>
     <div class="lgrid">
       <div class="vcard landscape rvL" id="vc2">
-        <img class="vthumb" src="https://img.youtube.com/vi/tk3zaxldC5k/maxresdefault.jpg" alt="Предметна зйомка" onerror="this.src='https://img.youtube.com/vi/tk3zaxldC5k/hqdefault.jpg'">
+        <img class="vthumb" src="https://img.youtube.com/vi/tk3zaxldC5k/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/tk3zaxldC5k/hqdefault.jpg'">
         <div class="vover" onclick="loadVid('vc2','tk3zaxldC5k')"><div class="vplay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
         <div class="vtag">Предметна зйомка</div>
         <a class="vyt" href="https://youtu.be/tk3zaxldC5k" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ YT</a>
       </div>
       <div class="vcard landscape rvR d1" id="vc3">
-        <img class="vthumb" src="https://img.youtube.com/vi/jSG7CYC8EqY/maxresdefault.jpg" alt="Комерційне відео" onerror="this.src='https://img.youtube.com/vi/jSG7CYC8EqY/hqdefault.jpg'">
+        <img class="vthumb" src="https://img.youtube.com/vi/jSG7CYC8EqY/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/jSG7CYC8EqY/hqdefault.jpg'">
         <div class="vover" onclick="loadVid('vc3','jSG7CYC8EqY')"><div class="vplay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
         <div class="vtag">Комерційне відео</div>
         <a class="vyt" href="https://youtu.be/jSG7CYC8EqY" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ YT</a>
       </div>
       <div class="vcard landscape rvL d2" id="vc6">
-        <img class="vthumb" src="https://img.youtube.com/vi/0YMfd7_BWqs/maxresdefault.jpg" alt="Портфоліо" onerror="this.src='https://img.youtube.com/vi/0YMfd7_BWqs/hqdefault.jpg'">
+        <img class="vthumb" src="https://img.youtube.com/vi/0YMfd7_BWqs/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/0YMfd7_BWqs/hqdefault.jpg'">
         <div class="vover" onclick="loadVid('vc6','0YMfd7_BWqs')"><div class="vplay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
         <div class="vtag">Портфоліо</div>
         <a class="vyt" href="https://youtu.be/0YMfd7_BWqs" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ YT</a>
       </div>
       <div class="vcard landscape rvR d2" id="vc7">
-        <img class="vthumb" src="https://img.youtube.com/vi/w6UO7mR0uME/maxresdefault.jpg" alt="Портфоліо" onerror="this.src='https://img.youtube.com/vi/w6UO7mR0uME/hqdefault.jpg'">
+        <img class="vthumb" src="https://img.youtube.com/vi/w6UO7mR0uME/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/w6UO7mR0uME/hqdefault.jpg'">
         <div class="vover" onclick="loadVid('vc7','w6UO7mR0uME')"><div class="vplay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
         <div class="vtag">Портфоліо</div>
         <a class="vyt" href="https://youtu.be/w6UO7mR0uME" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ YT</a>
       </div>
       <div class="vcard landscape rv d3 full" id="vc9">
-        <img class="vthumb" src="https://img.youtube.com/vi/hTOCTh3o7zQ/maxresdefault.jpg" alt="Портфоліо" onerror="this.src='https://img.youtube.com/vi/hTOCTh3o7zQ/hqdefault.jpg'">
+        <img class="vthumb" src="https://img.youtube.com/vi/hTOCTh3o7zQ/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/hTOCTh3o7zQ/hqdefault.jpg'">
         <div class="vover" onclick="loadVid('vc9','hTOCTh3o7zQ')"><div class="vplay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
         <div class="vtag">Портфоліо</div>
         <a class="vyt" href="https://youtu.be/hTOCTh3o7zQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ YT</a>
       </div>
     </div>
 
-    <!-- PORTRAIT 9:16 -->
     <div class="port-sec-lbl rv">Reels · Shorts 9:16</div>
     <div class="pgrid2">
       <div class="vcard portrait rvL" id="vc1">
-        <img class="vthumb" src="https://img.youtube.com/vi/Fkebrg9H8TM/maxresdefault.jpg" alt="AI Reels" onerror="this.src='https://img.youtube.com/vi/Fkebrg9H8TM/hqdefault.jpg'">
+        <img class="vthumb" src="https://img.youtube.com/vi/Fkebrg9H8TM/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/Fkebrg9H8TM/hqdefault.jpg'">
         <div class="vover" onclick="loadVid('vc1','Fkebrg9H8TM')"><div class="vplay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
         <div class="vtag">AI · Reels</div>
         <a class="vyt" href="https://youtube.com/shorts/Fkebrg9H8TM" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ YT</a>
       </div>
       <div class="vcard portrait rvR d1" id="vc4">
-        <img class="vthumb" src="https://img.youtube.com/vi/L9a2pbQJ8oI/maxresdefault.jpg" alt="Shorts" onerror="this.src='https://img.youtube.com/vi/L9a2pbQJ8oI/hqdefault.jpg'">
+        <img class="vthumb" src="https://img.youtube.com/vi/L9a2pbQJ8oI/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/L9a2pbQJ8oI/hqdefault.jpg'">
         <div class="vover" onclick="loadVid('vc4','L9a2pbQJ8oI')"><div class="vplay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
         <div class="vtag">Shorts</div>
         <a class="vyt" href="https://www.youtube.com/shorts/L9a2pbQJ8oI" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ YT</a>
       </div>
       <div class="vcard portrait rvL d2" id="vc5">
-        <img class="vthumb" src="https://img.youtube.com/vi/sRzYD-li8Cg/maxresdefault.jpg" alt="Shorts" onerror="this.src='https://img.youtube.com/vi/sRzYD-li8Cg/hqdefault.jpg'">
+        <img class="vthumb" src="https://img.youtube.com/vi/sRzYD-li8Cg/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/sRzYD-li8Cg/hqdefault.jpg'">
         <div class="vover" onclick="loadVid('vc5','sRzYD-li8Cg')"><div class="vplay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
         <div class="vtag">Shorts</div>
         <a class="vyt" href="https://youtube.com/shorts/sRzYD-li8Cg" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ YT</a>
       </div>
       <div class="vcard portrait rvR d3" id="vc8">
-        <img class="vthumb" src="https://img.youtube.com/vi/o1k60zuwMuQ/maxresdefault.jpg" alt="Shorts" onerror="this.src='https://img.youtube.com/vi/o1k60zuwMuQ/hqdefault.jpg'">
+        <img class="vthumb" src="https://img.youtube.com/vi/o1k60zuwMuQ/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/o1k60zuwMuQ/hqdefault.jpg'">
         <div class="vover" onclick="loadVid('vc8','o1k60zuwMuQ')"><div class="vplay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
         <div class="vtag">Shorts</div>
         <a class="vyt" href="https://youtube.com/shorts/o1k60zuwMuQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ YT</a>
@@ -390,8 +351,7 @@ footer{padding:36px 56px;border-top:1px solid var(--bg3);display:flex;justify-co
 </section>
 
 <!-- CONTACT -->
-<section id="contact" style="padding:128px 56px;border-top:1px solid var(--bg3);text-align:center;position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(196,136,154,.09) 0%,transparent 70%);pointer-events:none"></div>
+<section id="contact">
   <div class="wrap cta-inner rv">
     <div class="cta-label">Готові почати?</div>
     <h2 class="cta-h2">Розкажіть про вашу задачу — <em>решта за мною</em></h2>
@@ -428,18 +388,13 @@ const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.targ
 document.querySelectorAll('.rv,.rvL,.rvR').forEach(el=>obs.observe(el));
 function loadVid(id,vid){
   const card=document.getElementById(id);
-  const overlay=card.querySelector('.vover');const thumb=card.querySelector('.vthumb');
-  if(overlay)overlay.remove();if(thumb)thumb.remove();
+  const o=card.querySelector('.vover'),t=card.querySelector('.vthumb');
+  if(o)o.remove();if(t)t.remove();
   const ifr=document.createElement('iframe');
   ifr.src=`https://www.youtube.com/embed/${vid}?autoplay=1&rel=0&modestbranding=1`;
   ifr.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
   ifr.allowFullscreen=true;card.appendChild(ifr);
 }
-(async()=>{
-  for(const n of['photo.jpg','photo.jpeg','photo.png','portrait.jpg','image.jpg']){
-    try{const d=await window.fs.readFile(n);const url=URL.createObjectURL(new Blob([d]));const img=document.getElementById('heroImg');if(img){img.onload=()=>img.classList.add('loaded');img.onerror=null;img.src=url}return}catch(e){}
-  }
-})();
 </script>
 </body>
 </html>
