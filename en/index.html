@@ -224,7 +224,6 @@ footer{padding:36px 64px;border-top:1px solid var(--border);display:flex;justify
 <!-- HERO -->
 <section id="hero">
   <div class="hero-media">
-    <img id="heroImg" src="../photo.jpg" alt="Svitlana" onload="this.classList.add('loaded')" onerror="this.remove()">
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -426,18 +425,6 @@ function loadVid(id, vid) {
   ifr.allowFullscreen = true;
   card.appendChild(ifr);
 }
-
-(async () => {
-  for (const n of ['photo.jpg','photo.jpeg','photo.png','portrait.jpg','image.jpg','image.png']) {
-    try {
-      const d = await window.fs.readFile(n);
-      const url = URL.createObjectURL(new Blob([d]));
-      const img = document.getElementById('heroImg');
-      if (img) { img.onload = () => img.classList.add('loaded'); img.onerror = null; img.src = url; }
-      return;
-    } catch(e) {}
-  }
-})();
 </script>
 </body>
 </html>
